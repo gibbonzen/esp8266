@@ -63,35 +63,6 @@ void sendTextMessage(String txtMsg) {
   server.send(200, "text/plain", txtMsg);
 }
 
-////////////////////////////////////////////////////////////////
-//                                                            //
-//             Gestion des routes personnalisées              //
-//                                                            //
-////////////////////////////////////////////////////////////////
-
-// Fonction appelée pour répondre à la requête "/couloir"
-void handleCouloir() {
-  impulsion(OUT_COULOIR); // On appelle la fonction impulsion 
-
-  int etat = digitalRead(IN_COULOIR); // On lit l'état actuel du pin
-  sendTextMessage("Le couloir est " + etatEnText(etat)); // On envoi un message au client
-}
-
-// Fonction appelée pour répondre à la requête "/exterieur"
-void handleExterieur() {
-  impulsion(OUT_EXTERIEUR);
-
-  int eta = digitalRead(IN_EXTERIEUR);
-  sendTextMessage("L'extérieur est " + etatEnText(etat));
-}
-
-// Fonction appelée pour répondre à la requête "/quel-etat"
-void handleQuelEtat() {
-  int etat_couloir = digitalRead(IN_COULOIR);
-  int etat_exterieur = digitalRead(IN_EXTERIEUR);
-
-  sendTextMessage("Le couloir est " + etatEnText(etat_couloir) + " et l'extérieur est " + etatEnTexte(etat_exterieur));
-}
 
 ////////////////////////////////////////////////////////////////
 //                                                            //
@@ -132,6 +103,38 @@ void desactiver(int pin) {
 String etatEnTexte(int etat) {
   return etat > 0 ? "éteint" : "allumé";
 }
+
+
+////////////////////////////////////////////////////////////////
+//                                                            //
+//             Gestion des routes personnalisées              //
+//                                                            //
+////////////////////////////////////////////////////////////////
+
+// Fonction appelée pour répondre à la requête "/couloir"
+void handleCouloir() {
+  impulsion(OUT_COULOIR); // On appelle la fonction impulsion 
+
+  int etat = digitalRead(IN_COULOIR); // On lit l'état actuel du pin
+  sendTextMessage("Le couloir est " + etatEnText(etat)); // On envoi un message au client
+}
+
+// Fonction appelée pour répondre à la requête "/exterieur"
+void handleExterieur() {
+  impulsion(OUT_EXTERIEUR);
+
+  int etat = digitalRead(IN_EXTERIEUR);
+  sendTextMessage("L'extérieur est " + etatEnText(etat));
+}
+
+// Fonction appelée pour répondre à la requête "/quel-etat"
+void handleQuelEtat() {
+  int etat_couloir = digitalRead(IN_COULOIR);
+  int etat_exterieur = digitalRead(IN_EXTERIEUR);
+
+  sendTextMessage("Le couloir est " + etatEnText(etat_couloir) + " et l'extérieur est " + etatEnTexte(etat_exterieur));
+}
+
 
 ////////////////////////////////////////////////////////////////
 //                                                            //
