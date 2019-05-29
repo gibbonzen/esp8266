@@ -7,10 +7,11 @@ class TelerupteursManager {
     public:
         TelerupteursManager();
 
-        void add()
+        void add();
 
-        void remove()
+        void remove();
 
+    private:
         
 }
 
