@@ -6,6 +6,8 @@
 class TimerUtils {
   public:
     unsigned long long superMillis();
+
+    long convert(int time, char from, char to);
 };
 
 #endif
