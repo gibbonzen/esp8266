@@ -50,10 +50,10 @@ GND  ---  GPIO0 -|      |-  RST
 ```
 4. Ouvrir l’IDE Arduino et choisir le type de carte "Generic ESP8266 Module"
 5. Procéder au téléversement comme suit :
-   1. Effectuer un reset de l’ESP (GRD sur RST) avec le téléversement
+   1. Effectuer un reset de l’ESP (GRD sur RST) avant le téléversement
    2. Lancer l’upload du programme
    3. Déconnecter le GPIO0
-   4. Effecture une reset
+   4. Effectuer un nouveau reset
 
 
 **Téléversement**
